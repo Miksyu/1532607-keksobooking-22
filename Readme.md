@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг»
 
 * Студент: [Оксана Возмилова](https://up.htmlacademy.ru/javascript/22/user/1532607).
-* Наставник: `[Алексей Толстоног] (https://htmlacademy.ru/profile/id620625)`.
+* Наставник: `[Алексей Толстоног](https://htmlacademy.ru/profile/id620625)`.
 
 ---
 
