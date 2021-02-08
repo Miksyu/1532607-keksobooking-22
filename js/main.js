@@ -8,7 +8,7 @@ function getRandomIntInclusive(min, max) {
   return er;
 }
 
-const getSumm = (min, max, numbersCountAfterDot) => {
+const getRandomFloat = (min, max, numbersCountAfterDot) => {
   if (min >= 0 && max >= 0){
     const random = Math.random()* (max - min) + min;
     return random.toFixed(numbersCountAfterDot);
@@ -17,4 +17,4 @@ const getSumm = (min, max, numbersCountAfterDot) => {
   return er;
 }
 getRandomIntInclusive(-4, 10);
-getSumm(2, 10, 4);
+getRandomFloat(2, 10, 4);
