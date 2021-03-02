@@ -2,6 +2,12 @@ const createArr = ([...source], maxLength) => Array.from(
   { length: Math.min(source.length, 1 + Math.random() * maxLength | 0) },
   () => source.splice(Math.random() * source.length | 0, 1)[0]);
 
+function getStringFromArray(array){
+  const countOfIndex = getRandomInt(0, array.length - 1);
+  const someString = array[countOfIndex];
+  return someString
+}
+
 function getRandomInt(min, max) {
   if (min >= 0 && max >= 0){
     min = Math.ceil(min);
@@ -29,4 +35,4 @@ function getMainZero(min, max, width) {
   return randomNumber.length >= width ? randomNumber : new Array(width - randomNumber.length + 1).join(0) + randomNumber;
 }
 
-export {createArr, getRandomInt, getRandomFloat, getMainZero};
+export {createArr, getRandomInt, getRandomFloat, getMainZero, getStringFromArray};
