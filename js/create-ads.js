@@ -1,4 +1,4 @@
-import {createArr, getRandomInt, getRandomFloat, getMainZero} from './util.js';
+import {createArr, getRandomInt, getRandomFloat, getMainZero, getStringFromArray} from './util.js';
 
 const TITLE = [
   'Spend free time',
@@ -57,7 +57,7 @@ const describeAuthor = () => {
 
 const offerInformation = () => {
   return{
-    title: createArr(TITLE, TITLE.length - 1),
+    title: getStringFromArray(TITLE),
     address: getLocation(),
     price: getRandomInt(1000, 75000),
     type: createArr(TYPE, TYPE.length - 3),
@@ -86,7 +86,7 @@ const createAD = () => {
   }
 }
 
-const similarAds = new Array(DESCRIPTION_SIMILAR_AD_COUNT).fill(null).map(() =>
+const createAds = new Array(DESCRIPTION_SIMILAR_AD_COUNT).fill(null).map(() =>
   createAD());
 
-export{similarAds};
+export{createAds};
