@@ -5,7 +5,7 @@ const createArr = ([...source], maxLength) => Array.from(
 function getStringFromArray(array){
   const countOfIndex = getRandomInt(0, array.length - 1);
   const someString = array[countOfIndex];
-  return someString
+  return someString;
 }
 
 function getRandomInt(min, max) {
