@@ -60,13 +60,13 @@ const offerInformation = () => {
     title: getStringFromArray(TITLE),
     address: getLocation(),
     price: getRandomInt(1000, 75000),
-    type: createArr(TYPE, TYPE.length - 3),
+    type: getStringFromArray(TYPE),
     rooms: getRandomInt(1, 5),
     guests: getRandomInt(1, 20),
-    checkin: createArr(CHECKIN, CHECKIN.length - 2),
-    checkout: createArr(CHECKOUT, CHECKOUT.length - 2),
+    checkin: getStringFromArray(CHECKIN),
+    checkout: getStringFromArray(CHECKOUT),
     features: createArr(FEATURES, FEATURES.length - 1),
-    description: createArr(DESCRIPTION, DESCRIPTION.length - 1),
+    description: getStringFromArray(DESCRIPTION),
     photos: createArr(PHOTOS, PHOTOS.length - 1),
   }
 }
