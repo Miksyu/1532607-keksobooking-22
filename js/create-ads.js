@@ -41,12 +41,10 @@ const PHOTOS = [
   'http://o0.github.io/assets/images/tokyo/hotel3.jpg',
 ];
 
-const AVATAR = 'img/avatars/user{{xx}}.png';
-
 const DESCRIPTION_SIMILAR_AD_COUNT = 10;
 
 const rechangeNumber = () => {
-  return AVATAR.replace(/\{(\x\x)\}/g, getMainZero(1, 8, 2));
+  return `img/avatars/user${getMainZero(1, 8, 2)}.png`;
 }
 
 const describeAuthor = () => {
