@@ -2,8 +2,8 @@ import {createAds} from './create-ads.js';
 
 const similarAdsTemplate = document.querySelector('#card').content.querySelector('.popup');
 const similarAds = createAds.slice(0, 1);
-const mapCanvas = document.querySelector('.map__canvas');
-const similarListFragment = document.createDocumentFragment();
+//const mapCanvas = document.querySelector('.map__canvas');
+//const similarListFragment = document.createDocumentFragment();
 similarAds.forEach((offer) => {
   const adElement = similarAdsTemplate.cloneNode(true);
   if(offer.offer.title){
@@ -82,7 +82,7 @@ similarAds.forEach((offer) => {
     adElement.querySelector('.popup__type').remove();
   }
 
-  similarListFragment.appendChild(adElement)
+  //similarListFragment.appendChild(adElement)
 });
 
-mapCanvas.appendChild(similarListFragment);
+//mapCanvas.appendChild(similarListFragment);
