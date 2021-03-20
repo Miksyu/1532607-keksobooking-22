@@ -86,3 +86,4 @@ similarAds.forEach((offer) => {
 });
 
 //mapCanvas.appendChild(similarListFragment);
+export {similarAds}
