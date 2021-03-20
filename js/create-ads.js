@@ -88,3 +88,4 @@ const createAds = new Array(DESCRIPTION_SIMILAR_AD_COUNT).fill(null).map(() =>
   createAD());
 
 export{createAds};
+export{getLocation}
