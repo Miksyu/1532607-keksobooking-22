@@ -4,6 +4,7 @@ const similarAdsTemplate = document.querySelector('#card').content.querySelector
 const similarAds = createAds.slice(0, 1);
 //const mapCanvas = document.querySelector('.map__canvas');
 //const similarListFragment = document.createDocumentFragment();
+
 similarAds.forEach((offer) => {
   const adElement = similarAdsTemplate.cloneNode(true);
   if(offer.offer.title){
@@ -86,4 +87,4 @@ similarAds.forEach((offer) => {
 });
 
 //mapCanvas.appendChild(similarListFragment);
-export {similarAds}
+//export {similarAds}
