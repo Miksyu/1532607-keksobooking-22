@@ -1,6 +1,7 @@
 /* global L:readonly */
-import {createAds} from './create-ads.js'
-//import {similarAds} from './popup.js';
+//import {createAds} from './create-ads.js'
+//import { similarAds } from './popup.js';
+import './create-fetch.js'
 
 const map = L.map('map-canvas')
   .on('load', () => {
@@ -68,48 +69,48 @@ mainPinMarker.on('moveend', (evt) => {
 
 
 
-const createBaloon = (el) => {
+const renderSimilarList = (similarAds) => {
   const popupTemplate = document.querySelector('#card').content.querySelector('.popup');
   const popupElement = popupTemplate.cloneNode(true);
 
-  if(el.offer.title){
-    popupElement.querySelector('.popup__title').textContent = el.offer.title;
+  if(similarAds.offer.title){
+    popupElement.querySelector('.popup__title').textContent = similarAds.offer.title;
   } else{
     popupElement.querySelector('.popup__title').remove();
   }
-  if(el.offer.address){
-    popupElement.querySelector('.popup__text--address').textContent = `${el.offer.address.x} ${el.offer.address.y}`;
+  if(similarAds.offer.address){
+    popupElement.querySelector('.popup__text--address').textContent = `${similarAds.offer.address.x} ${similarAds.offer.address.y}`;
   } else{
     popupElement.querySelector('.popup__text--address').remove();
   }
-  if(el.offer.price){
-    popupElement.querySelector('.popup__text--price').textContent = `${el.offer.price} ₽/ночь`;
+  if(similarAds.offer.price){
+    popupElement.querySelector('.popup__text--price').textContent = `${similarAds.offer.price} ₽/ночь`;
   } else{
     popupElement.querySelector('.popup__text--price').remove();
   }
-  if(el.offer.rooms && el.offer.guests){
-    popupElement.querySelector('.popup__text--capacity').textContent = `${el.offer.rooms} комнаты для ${el.offer.guests} гостей.`;
+  if(similarAds.offer.rooms && similarAds.offer.guests){
+    popupElement.querySelector('.popup__text--capacity').textContent = `${similarAds.offer.rooms} комнаты для ${similarAds.offer.guests} гостей.`;
   } else{
     popupElement.querySelector('.popup__text--capacity').remove();
   }
-  if(el.offer.checkin && el.offer.checkout){
-    popupElement.querySelector('.popup__text--time').textContent = `Заезд после ${el.offer.checkin} выезд до ${el.offer.checkout}`;
+  if(similarAds.offer.checkin && similarAds.offer.checkout){
+    popupElement.querySelector('.popup__text--time').textContent = `Заезд после ${similarAds.offer.checkin} выезд до ${similarAds.offer.checkout}`;
   } else{
     popupElement.querySelector('.popup__text--time').remove();
   }
-  if(el.offer.description){
-    popupElement.querySelector('.popup__description').textContent = el.offer.description;
+  if(similarAds.offer.description){
+    popupElement.querySelector('.popup__description').textContent = similarAds.offer.description;
   } else{
     popupElement.querySelector('.popup__description').remove();
   }
-  if(el.author.avatar){
-    popupElement.querySelector('.popup__avatar').src = el.author.avatar;
+  if(similarAds.author.avatar){
+    popupElement.querySelector('.popup__avatar').src = similarAds.author.avatar;
   } else{
     popupElement.querySelector('.popup__avatar').remove();
   }
-  if(el.offer.photos){
+  if(similarAds.offer.photos){
     const photosHousing = popupElement.querySelector('.popup__photos')
-    const photosArray = photosHousing.textContent = el.offer.photos;
+    const photosArray = photosHousing.textContent = similarAds.offer.photos;
     photosHousing.innerHTML = photosArray.map(function(photo){
       return `<img src="${photo}" class="popup__photo" width="45" height="40" alt="Фотография жилья">`;
     })
@@ -117,9 +118,9 @@ const createBaloon = (el) => {
     popupElement.querySelector('.popup__photos').remove();
   }
 
-  if(el.offer.features){
+  if(similarAds.offer.features){
     const featuresList = popupElement.querySelector('.popup__features');
-    const featuresItems = featuresList.textContent = el.offer.features;
+    const featuresItems = featuresList.textContent = similarAds.offer.features;
     featuresList.innerHTML = featuresItems.map(function (featuresItem){
       return `<li class='popup__feature popup__feature--${featuresItem}'> ${featuresItem} </li>`;
     }).join('');
@@ -139,8 +140,8 @@ const createBaloon = (el) => {
         return 'Дом';
     }
   }
-  if(el.offer.type){
-    const typeOffer = el.offer.type;
+  if(similarAds.offer.type){
+    const typeOffer = similarAds.offer.type;
     const typeTranslation = getTypeOffer(typeOffer);
     const typePopup = popupElement.querySelector('.popup__type');
     typePopup.textContent = typeTranslation;
@@ -151,7 +152,7 @@ const createBaloon = (el) => {
   return popupElement;
 }
 
-createAds.forEach((el) => {
+/*similarAds.forEach((el) => {
   const lat = el.offer.address.x;
   const lng = el.offer.address.y;
 
@@ -174,9 +175,11 @@ createAds.forEach((el) => {
   marker
     .addTo(map)
     .bindPopup(
-      createBaloon(el),
+      renderSimilarList(el),
       {
         keepInView: true,
       },
     );
 });
+*/
+export{renderSimilarList}
