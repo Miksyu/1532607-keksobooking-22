@@ -1,4 +1,4 @@
-import {createAds} from './create-ads.js';
+/*import {createAds} from './create-ads.js';
 
 const similarAdsTemplate = document.querySelector('#card').content.querySelector('.popup');
 const similarAds = createAds.slice(0, 1);
@@ -88,3 +88,5 @@ similarAds.forEach((offer) => {
 
 //mapCanvas.appendChild(similarListFragment);
 export {similarAds}
+
+*/
