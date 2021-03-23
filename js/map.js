@@ -1,6 +1,6 @@
 /* global L:readonly */
 //import {createAds} from './create-ads.js'
-//import { similarAds } from './popup.js';
+//import {similarAds} from './popup.js';
 import './create-fetch.js'
 
 const map = L.map('map-canvas')
@@ -152,34 +152,35 @@ const renderSimilarList = (similarAds) => {
   return popupElement;
 }
 
-/*similarAds.forEach((el) => {
-  const lat = el.offer.address.x;
-  const lng = el.offer.address.y;
+function createMapPoint(data){
+  data.forEach((el) => {
+    const lat = el.offer.address.x;
+    const lng = el.offer.address.y;
 
-  const icon = L.icon({
-    iconUrl: './img/pin.svg',
-    iconSize: [40, 40],
-    iconAnchor: [20, 40],
-  });
+    const icon = L.icon({
+      iconUrl: './img/pin.svg',
+      iconSize: [40, 40],
+      iconAnchor: [20, 40],
+    });
 
-  const marker = L.marker(
-    {
-      lat,
-      lng,
-    },
-    {
-      icon,
-    },
-  );
-
-  marker
-    .addTo(map)
-    .bindPopup(
-      renderSimilarList(el),
+    const marker = L.marker(
       {
-        keepInView: true,
+        lat,
+        lng,
+      },
+      {
+        icon,
       },
     );
-});
-*/
-export{renderSimilarList}
+    marker
+      .addTo(map)
+      .bindPopup(
+        renderSimilarList(data),
+        {
+          keepInView: true,
+        },
+      );
+  })
+}
+
+export{createMapPoint}
