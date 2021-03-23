@@ -1,8 +1,16 @@
-import {renderSimilarList} from './map.js'
+import {createMapPoint} from './map.js'
 
-fetch('https://22.javascript.pages.academy/keksobooking/data')
-  .then((response) => response.json())
-  .then((ads) => {
-    renderSimilarList(ads)
-    //console.log(ads)
-  });
+export{getOffers}
+
+async function getOffers(){
+  const data = await fetch('https://22.javascript.pages.academy/keksobooking/data')
+  const offers = await data.json()
+  return offers
+}
+
+async function getOffersData(){
+  const dataOfOffers = await getOffersData()
+  await createMapPoint(dataOfOffers)
+}
+getOffersData();
+
